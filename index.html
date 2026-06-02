@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroSustent - Biofertilizantes e Sustentabilidade</title>
+    <style>
+        /* --- ESTILOS GERAIS (RESET) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f6;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* --- CABEÇALHO --- */
+        header {
+            background-color: #1e2229; /* Cinza Escuro/Grafite */
+            color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #2ecc71; /* Verde Sustentável para contraste */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #bdc3c7; /* Cinza Claro */
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2ecc71;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #2c3e50;
+            border: 1px solid #7f8c8d;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: white;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .search-box input::placeholder {
+            color: #bdc3c7;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            color: #2ecc71;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* --- BANNER PRINCIPAL --- */
+        .hero-banner {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(30, 34, 41, 0.9)), 
+                        url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=1920') no-repeat center center/cover;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #bdc3c7;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-cta {
+            background-color: #2ecc71;
+            color: #1e2229;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            background-color: #27ae60;
+            transform: translateY(-3px);
+        }
+
+        /* --- CONTEÚDO PRINCIPAL (SEÇÕES) --- */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .info-section {
+            background-color: #ffffff;
+            border-left: 5px solid #7f8c8d; /* Detalhe em cinza */
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .info-section:hover {
+            transform: translateY(-5px);
+            border-left-color: #2ecc71; /* Muda para verde no hover */
+        }
+
+        .info-section h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-section p {
+            color: #555ed;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- SEÇÃO DO QUIZ --- */
+        .quiz-container {
+            background-color: #2c3e50; /* Cinza azulado escuro */
+            color: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 50px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .quiz-container h3 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #2ecc71;
+        }
+
+        .quiz-container p.subtitle {
+            text-align: center;
+            margin-bottom: 35px;
+            color: #bdc3c7;
+        }
+
+        .question-card {
+            background-color: #34495e;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .question-card p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-label {
+            background-color: #1e2229;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .option-label:hover {
+            background-color: #7f8c8d;
+        }
+
+        .option-label input {
+            accent-color: #2ecc71;
+            transform: scale(1.2);
+        }
+
+        .quiz-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto 0;
+            background-color: #2ecc71;
+            color: #1e2229;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .quiz-btn:hover {
+            background-color: #27ae60;
+        }
+
+        #quiz-result {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 25px;
+            color: #2ecc71;
+        }
+
+        /* --- RODAPÉ --- */
+        footer {
+            background-color: #1e2229;
+            color: #bdc3c7;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            border-top: 3px solid #2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Agro<span>Sustent</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#producao">Produção</a></li>
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#quiz">Quiz</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Buscar no site...">
+                <button onclick="buscarConteudo()">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-banner" id="home">
+        <div class="hero-content">
+            <h2>Agro Forte & Sustentável</h2>
+            <p>O equilíbrio perfeito entre a alta produtividade no campo e a preservação do meio ambiente através da ciência dos biofertilizantes.</p>
+            <a href="#producao" class="btn-cta">Conheça a Tecnologia</a>
+        </div>
+    </section>
+
+    <main>
+        
+        <section class="info-section" id="producao">
+            <h3>🌱 1. O Conceito de Biofertilizantes</h3>
+            <p>Os biofertilizantes são produtos que contêm microrganismos vivos (bactérias, fungos e algas) que, quando aplicados às sementes, superfícies de plantas ou solo, promovem o crescimento ao aumentar o fornecimento ou a disponibilidade de nutrientes essenciais para a planta hospedeira.</p>
+            <p>Diferente dos fertilizantes químicos sintéticos, eles atuam de forma biológica, reativando a vida natural presente no solo agrícola.</p>
+        </section>
+
+        <section class="info-section">
+            <h3>🔬 2. Processo de Produção e Matéria-Prima</h3>
+            <p>A produção de biofertilizantes é um exemplo perfeito de economia circular no campo. Ela ocorre através da fermentação anaeróbica ou aeróbica de resíduos orgânicos, como esterco animal, restos de colheitas, biomassa vegetal e compostos ricos em carbono.</p>
+            <p>Esse processo passa por rígidos controles de temperatura e estabilização biológica, resultando em um insumo líquido ou sólido rico em nutrientes e microfauna benéfica.</p>
+        </section>
+
+        <section class="info-section" id="beneficios">
+            <h3>🌍 3. Equilíbrio e Proteção do Meio Ambiente</h3>
+            <p>O uso contínuo de insumos químicos pode degradar o solo e contaminar lençóis freáticos. Os biofertilizantes cortam esse ciclo destrutivo. Eles melhoram a estrutura física do solo, aumentam a retenção de água e evitam a erosão.</p>
+            <p>Além disso, por serem baseados em processos naturais, reduzem drasticamente a emissão de gases de efeito estufa associados à fabricação de fertilizantes industriais.</p>
+        </section>
+
+        <section class="info-section">
+            <h3>🚀 4. Agro Forte: Produtividade com Consciência</h3>
+            <p>Alcançar a segurança alimentar mundial exige um Agro Forte. O uso de biofertilizantes prova que é possível bater recordes de safra mantendo a responsabilidade ecológica. Plantas nutridas biologicamente desenvolvem defesas naturais mais fortes, reduzindo também a dependência de defensivos químicos.</p>
+            <p>Sustentabilidade hoje não é apenas um selo verde, é o motor econômico que garante a viabilidade da agricultura para as próximas gerações.</p>
+        </section>
+
+        <section class="quiz-container" id="quiz">
+            <h3>Desafio AgroSustent</h3>
+            <p class="subtitle">Teste seus conhecimentos sobre biofertilizantes e equilíbrio ambiental!</p>
+            
+            <form id="quizForm">
+                <div class="question-card">
+                    <p>1. Qual é a principal base de composição dos biofertilizantes?</p>
+                    <div class="options">
+                        <label class="option-label"><input type="radio" name="q1" value="errado"> Compostos puramente sintéticos derivados do petróleo.</label>
+                        <label class="option-label"><input type="radio" name="q1" value="correto"> Microrganismos vivos e matéria orgânica fermentada.</label>
+                        <label class="option-label"><input type="radio" name="q1" value="errado"> Minerais pesados extraídos de rochas profundas.</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p>2. Como os biofertilizantes ajudam diretamente o meio ambiente?</p>
+                    <div class="options">
+                        <label class="option-label"><input type="radio" name="q2" value="errado"> Substituindo a necessidade de água na lavoura.</label>
+                        <label class="option-label"><input type="radio" name="q2" value="errado"> Impedindo o crescimento de qualquer vegetação nativa em volta.</label>
+                        <label class="option-label"><input type="radio" name="q2" value="correto"> Recuperando a vida útil do solo e evitando a contaminação de águas.</label>
+                    </div>
+                </div>
+                
+                <button type="button" class="quiz-btn" onclick="calcularResultado()">Enviar Respostas</button>
+            </form>
+            
+            <div id="quiz-result"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AgroSustent - Equilíbrio entre Produção e Meio Ambiente. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função do Quiz
+        function calcularResultado() {
+            const form = document.getElementById('quizForm');
+            const q1 = form.elements['q1'].value;
+            const q2 = form.elements['q2'].value;
+            const resultDiv = document.getElementById('quiz-result');
+            
+            let acertos = 0;
+            
+            if (q1 === 'correto') acertos++;
+            if (q2 === 'correto') acertos++;
+            
+            if (q1 === "" || q2 === "") {
+                resultDiv.style.color = "#e74c3c";
+                resultDiv.innerHTML = "Por favor, responda todas as perguntas antes de enviar!";
+                return;
+            }
+
+            resultDiv.style.color = "#2ecc71";
+            if (acertos === 2) {
+                resultDiv.innerHTML = `🎉 Excelente! Você acertou ${acertos} de 2 questões. Você entende tudo de sustentabilidade no agro!`;
+            } else if (acertos === 1) {
+                resultDiv.style.color = "#f1c40f";
+                resultDiv.innerHTML = `👍 Bom trabalho! Você acertou ${acertos} de 2 questões. Dê mais uma lida nos textos para gabaritar!`;
+            } else {
+                resultDiv.style.color = "#e74c3c";
+                resultDiv.innerHTML = `Opa! Você acertou ${acertos} de 2 questões. Releia os blocos informativos e tente novamente!`;
+            }
+        }
+
+        // Função de busca simples
+        function buscarConteudo() {
+            const termo = document.getElementById('searchInput').value.toLowerCase();
+            if (termo.trim() === "") {
+                alert("Por favor, digite algo para buscar.");
+                return;
+            }
+            
+            // Procura o termo nos textos da página
+            const secoes = document.querySelectorAll('.info-section');
+            let encontrado = false;
+
+            secoes.forEach(secao => {
+                if (secao.innerText.toLowerCase().includes(termo)) {
+                    secao.scrollIntoView({ behavior: 'smooth' });
+                    secao.style.backgroundColor = "#e8f8f5"; // Destaca temporariamente a seção
+                    setTimeout(() => secao.style.backgroundColor = "#ffffff", 2000);
+                    encontrado = true;
+                }
+            });
+
+            if (!encontrado) {
+                alert("Nenhum conteúdo específico encontrado para: " + termo);
+            }
+        }
+    </script>
+</body>
+</html>
